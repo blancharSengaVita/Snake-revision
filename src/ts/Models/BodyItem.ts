@@ -13,7 +13,7 @@ export class BodyItem extends Square {
         });
     }
 
-    draw() {
+    public draw() {
         this.ctx.beginPath();
         this.ctx.strokeStyle = settings.snake.borderColor;
         this.ctx.fillStyle = settings.snake.color;
@@ -21,5 +21,9 @@ export class BodyItem extends Square {
         this.ctx.fill();
         this.ctx.stroke();
         this.ctx.closePath();
+    }
+
+    public clear() {
+        super.clear();
     }
 }
