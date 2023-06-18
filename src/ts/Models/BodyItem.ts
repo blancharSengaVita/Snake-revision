@@ -17,7 +17,7 @@ export class BodyItem extends Square {
         this.ctx.beginPath();
         this.ctx.strokeStyle = settings.snake.borderColor;
         this.ctx.fillStyle = settings.snake.color;
-        this.ctx.rect(this.position.x + this.ctx.lineWidth, this.position.x + this.ctx.lineWidth, this.side - this.ctx.lineWidth, this.side - this.ctx.lineWidth)
+        this.ctx.rect(this.position.x + this.ctx.lineWidth, this.position.y + this.ctx.lineWidth, this.side - this.ctx.lineWidth, this.side - this.ctx.lineWidth)
         this.ctx.fill();
         this.ctx.stroke();
         this.ctx.closePath();

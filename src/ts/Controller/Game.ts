@@ -1,12 +1,12 @@
 import {settings} from "../settings";
 import {Canvas} from "../framework-2023/Canvas";
 import {BodyItem} from "../Models/BodyItem";
+import {Snake} from "../Models/Snake";
 
 export class Game {
      private readonly resetForm : HTMLFormElement;
      private readonly snakeCanvas: Canvas;
-     // private snake: Snake;
-     private readonly bodyItem: BodyItem;
+     private snake: Snake;
 
 
      constructor() {
@@ -14,10 +14,8 @@ export class Game {
           this.resetForm = document.querySelector(settings.forms.domSelector)
 
           this.snakeCanvas  = new Canvas(document.querySelector(settings.canvas.snake.domSelector), {width: settings.canvas.size.width, height: settings.canvas.size.height});
-          this.bodyItem = new BodyItem({x:40, y:40}, this.snakeCanvas)
-          this.bodyItem.draw();
 
-          // this.snake = new Snake(this.snakeCanvas);
+          this.snake = new Snake(this.snakeCanvas);
      }
 
      private addEventListener() {
@@ -29,6 +27,12 @@ export class Game {
 
      private reset(){
           this.resetForm.classList.add(settings.forms.hideClass)
+          this.resetSnake()
+     }
+
+     resetSnake(){
+          this.snake.createSnake();
+          this.snake.draw();
      }
 }
 
